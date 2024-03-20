@@ -13,7 +13,7 @@
 // limitations under the License.
 
 #if canImport(SwiftUI)
-  import FirebaseAnalytics
+  import FirebaseCore
   import SwiftUI
 
   /// Custom view modifier to allow for easily logging screen view events.
@@ -27,7 +27,7 @@
     let screenClass: String
 
     /// Extra parameters to log with the screen view event.
-    let extraParameters: [String: Any]
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
     func body(content: Content) -> some View {
       // Take the content and add an onAppear action to know when the view has appeared on screen.
